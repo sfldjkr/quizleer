@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+/workspaces/hello/homepage<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+        <link href="quizstyle.css" rel="stylesheet">
+        <title>Anime Quiz</title>
+        <script>
+            var scores = 0;
+            let lives = 10;
+            function incorrectchoice(n) {
+                document.querySelectorAll(".incorrectchoice")[n].style["background-color"] = "red";
+                lives = lives - 1;
+                console.log(lives);
+                document.querySelector("#lives").innerHTML = `you have ${lives} lives left`;
+                if (lives < 1) {
+                    document.write("<img style='height: 70%;' src='https://media2.giphy.com/media/ukfn7kMzzLqLeyi5Tt/giphy.gif?cid=6c09b9528x24rhpc88gcva6ebzg2gydsmbk8fmw2x3ok7hxn&ep=v1_gifs_search&rid=giphy.gif&ct=g'>");
+
+                }
+            }
+
+            function correctchoice(nn) {
+                document.querySelectorAll(".correctchoice")[nn].style["background-color"] = "green";
+                scores += 1;
+                document.querySelector("#heroscore").innerHTML = `Your Score is ${scores}`;
+                if (scores > 9) {
+                    document.write("<img style='height: 70%;' src='https://gifsec.com/wp-content/uploads/2022/10/anime-dance-gif-5.gif'>");
+                }
+
+            }
+        </script>
+
+    </head>
+    <body style="background-image: url('data:image/jpeg;base64,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')">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Creator[Safal Shrestha]</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active" aria-current="page" href="index.html">Homepage</a>
+                  <a class="nav-link" href="https://www.facebook.com/bunnyyysth/">Instragram</a>
+                  <a class="nav-link" href="https://www.instagram.com/safal__sth/">Facebook</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        <h1 style="text-align: center; color: white;">anime Trivia</h1>
+        <div class="container">
+            <div class="section">
+                <h2 id="heroscore">Your score is 0</h2>
+                <h2 id="lives">you have 10 lives left</h2>
+                <br><br>
+                <hr>
+                <hr>
+                <!--Incorrect ones -->
+                <h3>question for time stone</h3>
+                <h3>What was the first anime movie to win an Oscar?</h3>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(0)"> Grave Of Fireflies</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(1)">Princess Mononoke</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(2)">Your name</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(3)">The wind rises</button>
+                <button type="button" class="correctchoice" onclick="correctchoice(0)">Spirited Away</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(4)">my neighbour totoro</button>
+
+                <br><br><br>
+
+                <h3> In the anime Fullmetal Alchemist, which Homunculi is created when Alphonse and Edward Elric used alchemy to bring their mom back to life??</h3>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(5)">Greed</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(6)">Glutony</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(7)">lust</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(8)">envy</button>
+                <button type="button" class="correctchoice" onclick="correctchoice(1)">sloth</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(9)">envy</button>
+
+                <br>
+                <br>
+                <br>
+
+                <h3>What one Thing is not true about doremon?</h3>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(10)"> Doremon Is A Factory-Rejected Toy</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(11)">Doremon Sister Is Stronger Than Him</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(12)"> Doraemon Was Not Always Afraid Of Mice</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(13)">Doremon Color Became Blue Due To Depression</button>
+                <button type="button" class="correctchoice" onclick="correctchoice(2)">Doremon Can't Feel Pain</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(14)">Doremon means "stray Cat"</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(15)">Nobita's kid name will be nobiko</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(16)">doremon favourite food is pancake</button>
+
+                <br>
+                <br>
+                <br>
+
+
+                <h3> Which titan has the ability to gain control of other titans?</h3>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(17)">cart titan</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(18)">armored titan</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(19)">beast titan</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(20)">colossus titan</button>
+                <button type="button" class="correctchoice" onclick="correctchoice(3)">founding titan</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(21)">female titan</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(22)">jaw titan</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(23)">war hammer titan</button>
+
+
+                <br>
+                <br>
+                <br>
+
+                <h3>Which of the following rules is NOT true about the Death Note? </h3>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(24)">Once you have written down the name of the victim and other conditions, the death will happen even when the note is destroyed</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(25)">The human whose name is written in this note shall die.</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(26)">If the cause of death is written within the next 40 seconds of writing the person's name, it will happen.</button>
+                <button type="button" class="correctchoice" onclick="correctchoice(4)">You can't kill those people who only have fewer than 5 minutes of their life left</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(27)">If the cause of death is not specified, the person will simply die of a heart attack.</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(28)">After writing the cause of death, details of the death should be written in the next 6 minutes and 40 seconds.</button>
+
+                <br>
+                <br>
+                <br>
+
+                <h3>Which Anime Was Sponsored By Pizza hut?</h3>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(29)">deathnote</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(30)">attack on titan</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(31)">food wars</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(32)">one piece</button>
+                <button type="button" class="correctchoice" onclick="correctchoice(5)">code geass</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(33)">demon slayer</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(34)">fmab</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(35)">Bleach</button>
+                <br><br><br>
+
+                <h3>Who is the first human character that Meruem kills??</h3>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(36)">pokkle</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(37)">ming-lol ik</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(38)">east gorteau guard</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(39)">kakin republic</button>
+                <button type="button" class="correctchoice" onclick="correctchoice(6)">farmer</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(40)">netero</button>
+                <br><br><br>
+
+                <h3>What was Saitama before he became a Professional Hero???</h3>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(41)">Business man</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(42)">athelete</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(43)">college student</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(44)">gym trainer</button>
+                <button type="button" class="correctchoice" onclick="correctchoice(7)">student</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(45)">chef</button>
+                <br><br><br>
+
+                <h3>What question does Aoi Todo ask both Yuji and Megumi to see if they're boring?</h3>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(46)">type of food they like</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(47)">type of jujutsu they like</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(48)">type of anime they like</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(49)">type of weapons they like</button>
+                <button type="button" class="correctchoice" onclick="correctchoice(8)">type of women they like</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(50)">type of people they like</button>
+                <br><br><br>
+
+                <h3>Griffith, the charasmatic leader of the mercenary group, takes a liking to Guts and decides he wants him to join and become one of his soldiers. Guts refuses and only agrees to join if Griffith can defeat him in a sword battle? How does this battle end??</h3>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(51)">Guts knocks out Griffith</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(52)">Griffith cuts off Guts' arm</button>
+                <button type="button" class="incorrectchoice" onclick="incorrectchoice(53)">Griffith dislocates Guts' shoulder</button>
+                <button type="button" class="correctchoice" onclick="correctchoice(9)">Ends with draw</button>
+
+                <br><br><br>
+
+
+
+
+            </div>
+        </div>
+    </body>
+</html>
